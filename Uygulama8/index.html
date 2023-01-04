@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <title>Document</title>
+    <script>
+        var index=0;
+        var header = document.getElementById("kResim");
+    function img_goster(yol,indis) {
+        index = indis;
+        document.getElementById("resim").innerHTML = "<img src='"+ yol + "'>";
+    }
+
+        function solaGit() {
+            if(index > 1) {
+                index--;
+                document.getElementById("resim").innerHTML = "<img src='IMG/"+ index + ".jpg'>";                
+              //  header.childNodes[index].className += " active";
+                console.log(index);
+            }
+        }
+
+
+    function sagaGit() {
+        var current = document.getElementsByClassName("active");
+       if(index < 5) {
+        index++;
+        document.getElementById("resim").innerHTML = "<img src='IMG/"+ index + ".jpg'>";         
+       // header.childNodes[index].className += " active";
+        console.log(index);       
+       }
+
+    }
+
+    </script>
+    </head>
+    <body>
+
+</head>
+<body>
+
+   <div class="container">
+    
+    <div class="left">
+         <a href="#" onclick="solaGit()"> <i class="fa fa-arrow-left" aria-hidden="true"></i> </a>
+    </div>
+
+    
+    <div class="right">
+        <a href="#" onclick="sagaGit()"> <i class="fa fa-arrow-right" aria-hidden="true"></i> </a>
+    </div>
+
+
+<div id="resim"> </div>
+
+<div class="images" id="kResim">
+<img class="page active" onclick="img_goster('IMG/1.jpg',1)">
+<img class="page" onclick="img_goster('IMG/2.jpg',2)" >
+<img class="page" onclick="img_goster('IMG/3.jpg',3)" >
+<img class="page" onclick="img_goster('IMG/4.jpg',4)" >
+<img class="page" onclick="img_goster('IMG/5.jpg',5)" >
+
+</div>
+</div>
+
+<script>
+    // Add active class to the current button (highlight it)
+    var header = document.getElementById("kResim");
+    var btns = header.getElementsByClassName("page");
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].addEventListener("click", function() {
+      var current = document.getElementsByClassName("active");
+      if (current.length > 0) { 
+        current[0].className = current[0].className.replace(" active", "");
+      }
+      this.className += " active";
+      });
+    }
+    </script>
+
+</body>
+</html>
+
